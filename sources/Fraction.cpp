@@ -71,26 +71,26 @@ namespace ariel
         denominator = 1;
     }
 
-    Fraction &Fraction::operator=(const Fraction &other)
+    Fraction &Fraction::operator=(const Fraction &fraction)
     {
-        numerator = other.numerator;
-        denominator = other.denominator;
+        numerator = fraction.numerator;
+        denominator = fraction.denominator;
         return *this;    }
 
-    Fraction::Fraction(Fraction &&other) noexcept
+    Fraction::Fraction(Fraction &&fraction) noexcept
     {
-        numerator = other.numerator;
-        denominator = other.denominator;
-        other.numerator = 0;
-        other.denominator = 1;
+        numerator = fraction.numerator;
+        denominator = fraction.denominator;
+        fraction.numerator = 0;
+        fraction.denominator = 1;
     }
 
-    Fraction &Fraction::operator=(Fraction &&other) noexcept
+    Fraction &Fraction::operator=(Fraction &&fraction) noexcept
     {
-        numerator = other.numerator;
-        denominator = other.denominator;
-        other.numerator = 0;
-        other.denominator = 1;
+        numerator = fraction.numerator;
+        denominator = fraction.denominator;
+        fraction.numerator = 0;
+        fraction.denominator = 1;
         return *this;
     }
 
@@ -270,30 +270,30 @@ namespace ariel
         return !(floatNumberLeft < fractionRight);
     }
 
-    Fraction operator+(float floatNumberLeft, const Fraction &rightSide)
+    Fraction operator+(float floatNumberLeft, const Fraction &fractionRight)
     {
         Fraction left(floatNumberLeft);
-        return left + rightSide;
+        return left + fractionRight;
     }
-    Fraction operator-(float floatNumberLeft, const Fraction &rightSide)
+    Fraction operator-(float floatNumberLeft, const Fraction &fractionRight)
     {
         Fraction left(floatNumberLeft);
-        return left - rightSide;
+        return left - fractionRight;
     }
-    Fraction operator*(float floatNumberLeft, const Fraction &rightSide)
+    Fraction operator*(float floatNumberLeft, const Fraction &fractionRight)
     {
         Fraction left(floatNumberLeft);
-        return left * rightSide;
+        return left * fractionRight;
     }
-    Fraction operator/(float floatNumberLeft, const Fraction &rightSide)
+    Fraction operator/(float floatNumberLeft, const Fraction &fractionRight)
     {
-        if (rightSide.numerator == 0)
+        if (fractionRight.numerator == 0)
         {
             throw std::runtime_error("Cannot divide by zero");
         }
 
         Fraction left(floatNumberLeft);
-        return left / rightSide;
+        return left / fractionRight;
     }
 
     std::ostream &operator<<(std::ostream &outputStream, const Fraction &fractionNumber)
