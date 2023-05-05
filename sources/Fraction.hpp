@@ -8,7 +8,6 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
-
 namespace ariel
 {
     class Fraction
@@ -204,23 +203,60 @@ namespace ariel
         friend bool operator>=(float floatNumberLeft, const Fraction &fractionRight);
 
         /// @brief add float number to the current Fraction object
-        /// @return the result of the addition
+        /// @return the result of the addition 
         friend Fraction operator+(float floatNumberLeft, const Fraction &fractionRight);
 
+        /// @brief subtract float number from the current Fraction object
+        /// @return the result of the subtraction
         friend Fraction operator-(float floatNumberLeft, const Fraction &fractionRight);
+
+        /// @brief multiply float number with the current Fraction object
+        /// @return the result of the multiplication
         friend Fraction operator*(float floatNumberLeft, const Fraction &fractionRight);
+
+        /// @brief divide float number from the current Fraction object
+        /// @return the result of the division throws exception if the Fraction object is 0
         friend Fraction operator/(float floatNumberLeft, const Fraction &fractionRight);
 
+        /// @brief add float number to the current Fraction object
+        /// @return the result of the addition
         Fraction operator+(float floatNumberRight) const;
+
+        /// @brief subtract float number from the current Fraction object
+        /// @return the result of the subtraction
         Fraction operator-(float floatNumberRight) const;
+
+        /// @brief multiply float number with the current Fraction object
+        /// @return the result of the multiplication
         Fraction operator*(float floatNumberRight) const;
+
+        /// @brief divide float number from the current Fraction object
+        /// @return the result of the division throws exception if the Fraction object is 0
         Fraction operator/(float floatNumberRight) const;
+
+        /// @brief add float number to the current Fraction object
+        /// @return the result of the addition
         Fraction operator+=(float floatNumberRight);
+
+        /// @brief subtract float number from the current Fraction object
+        /// @return the result of the subtraction
         Fraction operator-=(float floatNumberRight);
+
+        /// @brief multiply float number with the current Fraction object
+        /// @return the result of the multiplication
         Fraction operator*=(float floatNumberRight);
+
+        /// @brief divide the current Fraction object from float number
+        /// @return the result of the division throws exception if the float number is 0
         Fraction operator/=(float floatNumberRight);
 
+
+        /// @brief gives the numerator of the Fraction object
+        /// @return int the numerator of the Fraction object
         int getNumerator();
+
+        /// @brief gives the denominator of the Fraction object
+        /// @return int the denominator of the Fraction object
         int getDenominator();
     };
 
